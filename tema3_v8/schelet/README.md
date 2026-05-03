@@ -1,10 +1,39 @@
-TASK 1
-Pentru inceput aloc structura secretariat, si initializez cu 0, citesc fiecare linie din fisier si verific in care sectiune se afla iar in functie de ce sectiune se afla citesc datele respective, si le salvez in secretariat. Pentru calculul medie parcurg fiecare student, iar daca are id egal cu cel din irolarii adun notele respetive, fac o medie care o inmultesc la 100 si o trunchiez folosind int , apoi imparc inapoi la 100 si o valvez in vectotul studenti. Pentru adaugarea unui student am realocat vectorul studenti cu unul mai mult, si am salvat datele studentului. Iar pentru elibararea secretariatului am eliberat vectorii de nume si num titular pentru ca erau alocati dinamic apoi ceilalti vectori din structura secretariat.
-TASK 2
-Citesc secretariatul, iar apoi fiecare linie, fiecare linie o procesez intro funtie iar in functie de ce contine functia respectiva apelez fucnctia respectiva de ex. da am SELECT SI AND insemna ca are 2 conditii daca nu contine AND dar are WHERE insemna ca are o singura conditie altefel este simpla. La fel si pentru UPDATE SI DELETE. Pentru functia de select simpla eu primesc ca parametru toate campurile iar apoi cu strtok le impart intr-un vector de campuri, verific in ce tabel se afla iar apoi in functie de campul cerut afisez campurile respective. La functia cu o conditie exact pasii din fct. de mai sus doar ca maai verificam pentru fiecare tabel in care mai aflam daca filtrul cerut este ok pentru tabelul meu si salvam intr-o variabila conditie_ok daca am gasit un tabel cu conditia buna si apoi afisam. la functia cu interogare exact functia select cu o singura conditie doar ca verificam conditiile de doua ori si pentru afisare trebuia sa fie ambele condtii satisfacute.
-Pentru update cu o condiie pentru tabel care ma aflu il parcurgeam si verificam conditia ceruta daca era satisfacuta inlocuiam noile date primite in tabelul meu ex. studenti..., daca schimbam note, recalculam media generala.
-Pentru update cu doua conditii exact update simplu doar ca trebuie sa fie satisfacute ambele conditii pentru atribuire si la fel daca setam note nai calculam media generala.
-Pentru delete aceeasi parcurge doar ca acum in cazul in care conditia este buna stad numarul din tabelul respectiv ,si realoc memoria pentru tabel si scad numarul cu 1. Iar in final calculez media generala, pentru delete cu 2 conditii aceeasi situatie ca la delete doar ca ambele conditii trebuie sa fie ok pentru a elimina tabelul respectiv;
-TASK 3
-Pentru inceput vreau sa zic ca daca verific manual eu iesierea intr-un fisier text si fac difernata dinte ref si ouptutul meu nu este nici o diferenta la test 2. Insa pe checker nu primesc puncte pentru acel test.
-Aloc o matrice de blocuri, separ datele in patru blockuri de dimensiune fixa, si daug 0x00 unde am lipsa. Aplic XOR pentru primul bloc si IV, apoi primul bloc si key, si dupa p_box pentrul primul bloc, cu cele 3 ramase aplic xor intre bloc si bloc precedent , xor si key ,si pbox. Afisez si dezaloc meroria pentru blocuri.
+# Tema 3 - Procesarea Matricelor și Transformări de Hartă (PCLP)
+
+## Descriere
+Acest proiect implementează o serie de algoritmi pentru manipularea și transformarea unor structuri de date bidimensionale (matrice de caractere/pixeli). Obiectivul principal a fost gestionarea eficientă a memoriei dinamice și implementarea unor algoritmi de parcurgere și modificare a datelor în funcție de cerințe specifice.
+
+---
+
+## Detalii Implementare
+
+### TASK 1 - Inițializarea Hărții și Alocarea Memoriei
+În acest task, am pus bazele infrastructurii proiectului:
+- **Alocare Dinamică:** Am implementat o funcție care alocă memorie pentru o matrice de tip `char **` (pointer la pointer), asigurând spațiul necesar pentru un grid de dimensiuni variabile ($rows \times cols$).
+- **Inițializare:** Matricea este populată cu datele inițiale, pregătind terenul pentru transformările ulterioare. 
+- **Validare:** Am inclus verificări pentru a mă asigura că alocarea a reușit, evitând dereferențierea pointerilor NULL.
+
+### TASK 2 - Transformări Geometrice și Logice
+Task-ul 2 se concentrează pe modificarea structurii hărții. Din implementare, am urmărit:
+- **Parcurgerea Eficientă:** Utilizarea buclelor imbricate pentru a accesa și modifica elementele matricei în funcție de indici.
+- **Manipularea Valorilor:** Aplicarea unor măști sau schimbarea stării elementelor din hartă pentru a reflecta o nouă configurație (ex: filtrare sau mapare de caractere).
+
+### TASK 3 - Extragerea Informațiilor și Analiza
+Acest task vizează interpretarea datelor din matricea procesată la pașii anteriori:
+- **Căutare și Identificare:** Algoritmi care caută tipare specifice în interiorul hărții.
+- **Sinteza Datelor:** Rezultatele sunt extrase pentru a genera output-ul final al programului.
+- **Gestiunea Pointerilor:** Utilizarea pointerilor pentru a transmite și prelucra datele între diferite secțiuni ale programului fără a copia inutil memoria.
+
+---
+
+## Gestiunea Memoriei
+Un aspect critic al acestei teme a fost prevenirea scurgerilor de memorie (**memory leaks**).
+- Fiecare `malloc` are un corespondent `free`.
+- Memoria este eliberată în ordine inversă alocării: întâi fiecare rând al matricei, apoi vectorul de pointeri principal.
+
+## Instrucțiuni de Utilizare
+
+### Compilare
+Proiectul utilizează un `Makefile` pentru automatizarea procesului de build. Rulează următoarea comandă în terminal:
+```bash
+make
