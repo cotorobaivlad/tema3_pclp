@@ -1,0 +1,9 @@
+{
+    "files.associations": {
+        "math.h": "c",
+        "task1.h": "c",
+        "random": "c",
+        "task2.h": "c",
+        "task3.h": "c"
+    }
+}
