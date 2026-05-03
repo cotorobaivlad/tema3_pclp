@@ -1,7 +1,7 @@
 # Tema 3 - Procesarea Matricelor și Transformări de Hartă (PCLP)
 
 ## Descriere
-Acest proiect implementează o serie de algoritmi pentru manipularea și transformarea unor structuri de date bidimensionale (matrice de caractere/pixeli). Obiectivul principal a fost gestionarea eficientă a memoriei dinamice și implementarea unor algoritmi de parcurgere și modificare a datelor în funcție de cerințe specifice.
+Acest proiect implementează o serie de algoritmi pentru manipularea și transformarea unor structuri de date bidimensionale (matrice de caractere). Obiectivul principal a fost gestionarea eficientă a memoriei dinamice și implementarea unor algoritmi de parcurgere și modificare a datelor în funcție de cerințe specifice.
 
 ---
 
